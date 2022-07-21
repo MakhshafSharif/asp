@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "/Users/getDepartment",
+                data: "{}",
+                success: function (data) {
+                    var s = '<option value="-1">Please Select a Student</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].DepartmentID + '">' + data[i].DepartmentName + '</option>';
+                    }
+                    $("#departmentsDropdown").html(s);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">  
+            <asp:DropDownList ID="DropDownList1" runat="server" >  
+            <asp:ListItem Value="">Please Select</asp:ListItem>  
+            <asp:ListItem>Ali </asp:ListItem>  
+            <asp:ListItem>ayesha</asp:ListItem>  
+            <asp:ListItem>amna</asp:ListItem>  
+            <asp:ListItem>zain</asp:ListItem>  
+            <asp:ListItem>hira</asp:ListItem> 
+            <asp:ListItem>fatima</asp:ListItem>
+            <asp:ListItem>zainab</asp:ListItem>
+            <asp:ListItem>zuha</asp:ListItem>
+            <asp:ListItem>samreen</asp:ListItem>
+            <asp:ListItem>awais</asp:ListItem>
+            <asp:ListItem>ahsan</asp:ListItem>
+            <asp:ListItem>areeha</asp:ListItem>
+            <asp:ListItem>sohaib</asp:ListItem>
+            <asp:ListItem>aima</asp:ListItem>
+            <asp:ListItem>esha</asp:ListItem>
+            <asp:ListItem>seerat</asp:ListItem>
+            <asp:ListItem>abdullah</asp:ListItem>
+            <asp:ListItem>moiz</asp:ListItem>
+            <asp:ListItem>haram</asp:ListItem>
+            <asp:ListItem>arsalan</asp:ListItem>
+            </asp:DropDownList>  
+                <br />  
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />  
+        <br />  
+        <br />  
+        <asp:Label ID="Label1" runat="server" EnableViewState="False"></asp:Label>  
+    </form>  
+</body>
+</html>

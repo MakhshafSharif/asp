@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Students
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        [WebMethod]
+        public static array(string inputValue)
+        {
+            string[] students = new string[20] { "Ali", "Ayesha", "Amna", "Zain", "hira", "fatima", "zainab", "zuha", "samreen", "awais", "ahsan", "areeha", "sohaib", "aima", "esha", "seerat", "abdullah", "moiz", "haram", "arsalan" };
+            for (int i = 0; i < students.Length; i++)
+                Response.Write(students[i]);
+        }
+        private static List<StudentList> populateStudent()
+        {
+            List<StudentList> list = new List<StudentList>();
+            var platform = db.tblStudent.ToList();
+            foreach (var itemin platform)
+            {
+                list.Add(new StudentList
+                {
+                    list_id = item.list_id,
+                    Name = item.Name,
+                    Age = item.Age,
+                    Address = item.Address
+                });
+            }
+
+            return list;
+        }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        if (DropDownList1.SelectedValue == "")
+        {
+            Label1.Text = "Please Select a City";
+        }
+        else
+            Label1.Text = "Your Choice is: " + DropDownList1.SelectedValue;
+    }
+}
